@@ -1,0 +1,95 @@
+/* Style général */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* Style du header */
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Style de la section héro */
+.jumbotron {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 100px 0;
+    margin-bottom: 2rem;
+    border-radius: 0;
+}
+
+/* Style des cartes de voitures */
+.card {
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Style du footer */
+footer {
+    margin-top: auto;
+}
+
+footer a:hover {
+    color: #f8f9fa !important;
+    text-decoration: none;
+}
+
+/* Style du formulaire de contact */
+.contact-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Style du panier */
+.cart-item {
+    background: white;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Style des détails de voiture */
+.car-details {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.car-gallery img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .jumbotron {
+        padding: 50px 0;
+    }
+    
+    .card-img-top {
+        height: 150px;
+    }
+    
+    .car-gallery img {
+        height: 300px;
+    }
+}
