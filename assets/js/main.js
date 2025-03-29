@@ -106,3 +106,54 @@ function showAlert(message, type = 'success') {
         alertDiv.remove();
     }, 5000);
 }
+
+// Raccourcis clavier
+document.addEventListener('keydown', function(event) {
+    // Ne pas activer les raccourcis si l'utilisateur est en train de taper dans un champ
+    if (event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA') {
+        return;
+    }
+
+    // Alt + touches pour la navigation
+    if (event.altKey) {
+        switch(event.key) {
+            case 'a': // Alt + A : Accueil
+                window.location.href = 'index.php';
+                break;
+            case 'c': // Alt + C : Catalogue
+                window.location.href = 'catalogue.php';
+                break;
+            case 'p': // Alt + P : Panier
+                window.location.href = 'panier.php';
+                break;
+            case 'm': // Alt + M : Mon compte
+                window.location.href = 'mon_compte.php';
+                break;
+            case 't': // Alt + T : Contact
+                window.location.href = 'contact.php';
+                break;
+            case 's': // Alt + S : Focus sur la barre de recherche
+                event.preventDefault();
+                document.querySelector('input[type="search"]')?.focus();
+                break;
+        }
+    }
+});
+
+// Afficher une info-bulle avec les raccourcis disponibles
+const shortcutInfo = document.createElement('div');
+shortcutInfo.innerHTML = `
+    <div class="position-fixed bottom-0 end-0 m-3 p-3 bg-dark text-light rounded shadow-lg" style="z-index: 1050; max-width: 300px;">
+        <h6 class="mb-2"><i class="bi bi-keyboard"></i> Raccourcis clavier :</h6>
+        <ul class="list-unstyled small mb-0">
+            <li><kbd>Alt</kbd> + <kbd>A</kbd> : Accueil</li>
+            <li><kbd>Alt</kbd> + <kbd>C</kbd> : Catalogue</li>
+            <li><kbd>Alt</kbd> + <kbd>P</kbd> : Panier</li>
+            <li><kbd>Alt</kbd> + <kbd>M</kbd> : Mon compte</li>
+            <li><kbd>Alt</kbd> + <kbd>T</kbd> : Contact</li>
+            <li><kbd>Alt</kbd> + <kbd>S</kbd> : Recherche</li>
+        </ul>
+        <button class="btn btn-sm btn-outline-light mt-2" onclick="this.parentElement.style.display='none'">Fermer</button>
+    </div>
+`;
+document.body.appendChild(shortcutInfo);
